@@ -1,0 +1,240 @@
+html, 
+body {
+    height: 100% !important;
+    background-color:  #FFEB99 !important;
+}
+
+#root{
+  height: 100%;
+  
+}
+
+.large{
+  width:25em !important;
+  height:25em !important; 
+}
+
+.btn-large{
+  font-size: xx-large;
+}
+
+@media only screen and (max-width: 500px) {
+  .home-page {
+    padding-left: 0.5em !important;
+    padding-right: 0.5em !important;
+    font-size: small;
+  }
+  .large{
+    width:20em !important;
+    height:20em !important; 
+  }
+}
+
+
+
+
+.home-page{
+  display: flex;
+padding: 5em;
+margin: auto;  
+}
+
+
+
+a{
+  color:black;
+}
+  
+
+
+.App {
+
+  height: 100%;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+
+.flip-anim{
+  transition-property: width;
+  transition-property: position;
+  transition-property: left;
+  transition-duration: 0.1s;
+  transition-timing-function: linear;
+}
+
+.flash-card {
+  width: 12em;
+  height: 12em;
+  margin:1em;
+  
+  border-radius: 0.5em;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  text-decoration: none;
+
+}
+
+.grid-container{
+  display: grid;
+  grid-template-columns: 40px 50px auto 50px 40px;
+  grid-template-rows: 25% 100px auto;
+}
+
+.grid-container > * {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+
+
+.list-container{
+  display: flex;
+  flex-wrap:wrap;
+  flex-basis:100%;
+}
+
+.list-row{
+  flex-direction: row;
+}
+
+.list-col{
+  flex-direction: column;
+}
+
+.drop-shadow{
+  box-shadow: 0px 4px 4px 0px #00000040;
+
+}
+
+
+.list-item {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 1em;
+  border-radius: 0.5em;
+  
+}
+
+
+.primary-100{
+  background-color: #FBAF00;
+}
+
+.primary-200{
+  background-color: #FDC31D;
+}
+
+.primary-300{
+  background-color: #FFD21F;
+}
+
+.primary-400{
+  
+  background-color: #FFD639;
+}
+
+.primary-500{
+  background-color:  #FFEB99 !important;
+}
+
+.input-style{
+  font-size: large;
+  padding-left: 1em;
+  margin-left: 1em;
+  margin-right:1em ;
+  border: none;
+  padding-right:1em ;
+}
+
+.input-style:focus-visible{
+  border: #FBAF00 solid; 
+}
+
+.outline-light{
+  border: #FFEB99 solid; 
+}
+.outline-dark{
+  border:#FBAF00 solid
+}
+.center-element{
+  display: flex;
+justify-content: center;
+align-items: center;
+}
+
+a{
+  display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 100%;
+}
+
+.button ,a {
+  border-radius: 0.5em;
+  margin: 0.5em;
+  padding: 0.5em;
+  cursor:pointer;
+  
+  text-decoration: none;
+  outline: none;
+  
+}
+
+
+
+
+.button:hover , button:hover 
+{
+  /* .primary-200 */
+    background-color: #FFD639 !important;
+
+}
+.button:active , button:active {
+  /* primary-100 */
+background-color: #FBAF00 !important;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  
+}
+
+/* Modal Content/Box */
+.modal-content {
+  border-radius: 1em;
+  width: 60%;
+  border: thin;
+  padding:1em;
+}
+
+/* The Close Button */
+.close {
+  margin: 1em;
+}
+
+.close:hover,
+.close:focus {
+  
+  text-decoration: none;
+  cursor: pointer;
+}
+
+input{
+  height: 2em;
+  width: 70%;
+  margin: 1em;
+}
+
+h1{
+  margin-bottom:0;
+}
