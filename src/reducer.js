@@ -40,14 +40,21 @@ export const reducer = (state=initialState,action) =>{
         return [...state , {id:action.payload.id,deckname:action.payload.deckname}];
     }
     if(action.type==DEL_DECK){
-        return state.filter(obj=>obj.id!=action.payload.id);
+        return state.filter(obj=>obj.id!==action.payload.id);
     }
     if(action.type==SET_DECK_NAME){
-        return state.map((obj) => {
-            if(obj.id==action.payload.id){
+        
+        state.map((obj) => {
+            console.log(obj,obj.id===action.payload.id)
+            if(obj.id===action.payload.id){
+                console.log(obj.deckname)
                 obj.deckname = action.payload.deckname;
+                console.log(obj.deckname)
             }
         });
+
+        
+        return state 
     }
     return state;
 }
