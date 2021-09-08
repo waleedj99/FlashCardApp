@@ -8,6 +8,13 @@ import {
   Route,
   Link
 } from "react-router-dom";
+
+
+import { del_deck,set_deck_name } from "../action";
+
+import { useDispatch} from 'react-redux';
+
+
 export default function DeckListItem(props) {
   
   const [isEditMode,setIsEditMode] = useState(false)
@@ -16,7 +23,7 @@ export default function DeckListItem(props) {
 if(isDeleted==true)return(<></>)
 else{
   return (
-    <div className="list-item drop-shadow primary-200">
+    <div key={"DLI-"+props.id} className="list-item drop-shadow primary-200">
       
       {isEditMode ? <input value={deckName} onChange={(e)=>{setDeckName(e.target.value)}} className="input-style primary-500 center-element" style={{paddingRight:0,fontSize:"16px", marginLeft: "1em", justifyContent: "start", "flexBasis": "70%", }}></input> :
         <h3 className="center-element" style={{ marginLeft: "2em", justifyContent: "start", "flexBasis": "60%", }}>
