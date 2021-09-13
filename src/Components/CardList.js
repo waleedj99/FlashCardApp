@@ -60,7 +60,7 @@ function CardList(props) {
         </div>    
         <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center"}}>
         {deckW.map((cardData)=>{
-            return <FlashCard deckId={did} id={cardData.id} OriginalWord={cardData.OriginalWord} TranslatedWord={cardData.AnswerWord} deckName={props.location.state.deckName}  />
+            return <FlashCard did={did} id={cardData.id} OriginalWord={cardData.OriginalWord} TranslatedWord={cardData.AnswerWord} deckName={props.location.state.deckName}  />
         })}
                 <div style={{ width: "12em", height: "12em", borderRadius: "0.5em", margin: "1em" }}>
                 <div onClick={addCard} className="button flash-card primary-500 outline-dark center-element"> 

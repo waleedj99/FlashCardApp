@@ -35,7 +35,7 @@ export default function HomePage(props) {
           return <DeckListItem  deck={item} />;
         })}
       
-        <div onClick={()=>dispatch(add_deck(deckList.length,"New Deck"))} className="button drop-shadow list-item primary-500 outline-dark">
+        <div onClick={()=>dispatch(add_deck(deckList.length+1,"New Deck"))} className="button drop-shadow list-item primary-500 outline-dark">
           <h3 className="center-element" >
             ADD DECK
       </h3>

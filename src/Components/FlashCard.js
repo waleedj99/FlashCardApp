@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { set_card_words} from "../action";
+import { del_card, set_card_words} from "../action";
 
 import { useSelector ,useDispatch} from 'react-redux';
 
@@ -71,7 +71,8 @@ export default function FlashCard(props) {
         
 
 
-        <h5 onClick={removeThisCard} className="button">DEL</h5>
+        <h5 onClick={()=>{removeThisCard()
+        dispatch(del_card(props.did,props.id))}} className="button">DEL</h5>
         
         <h5 className="button" onClick={switchWord}>FLIP</h5>
         

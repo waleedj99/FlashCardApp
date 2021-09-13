@@ -1,4 +1,4 @@
-import {ADD_DECK,SET_DECK_NAME,DEL_DECK, SET_CARD_WORDS} from "./action.js"
+import {ADD_DECK,SET_DECK_NAME,DEL_DECK, SET_CARD_WORDS,DEL_CARD} from "./action.js"
 
 export const initialState = [
       {
@@ -56,15 +56,27 @@ export const reducer = (state=initialState,action) =>{
 
     if(action.type==SET_CARD_WORDS){
       state.map((obj) => {
-            console.log(obj,obj.id===action.payload.id)
+            console.log(obj,action.payload,obj.id==action.payload.did)
             if(obj.id===action.payload.did){
                 console.log(obj.deckname)
                 obj.cardlist.map((card)=>{
                   if(card.id===action.payload.cid){
-                    card.OriginalWord = action.payload.updatedWord
-                    card.AnswerWord = action.payload.updatedWord
+                    card.OriginalWord = action.payload.updatedWordQ
+                    card.AnswerWord = action.payload.updatedWordA
                   }
                 })
+            }
+        });        
+        return state
+    }
+
+    if(action.type==DEL_CARD){
+      state.map((obj) => {
+            console.log(obj,action.payload,obj.id==action.payload.did)
+            if(obj.id===action.payload.did){
+                //console.log(obj.deckname)
+                console.log(obj.cardlist.filter(card=>card.id!=action.payload.cid))
+                obj.cardlist = obj.cardlist.filter((card)=>card.id!=action.payload.cid)
             }
         });        
         return state
