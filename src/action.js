@@ -19,4 +19,4 @@ export const del_card = (did,cid) =>({type:DEL_CARD,payload:{did:did,cid:cid}})
 
 //CardList
 export const ADD_CARD = "ADD_CARD";
-export const add_card = ()=>{}
+export const add_card = (did,cid,Qword,Aword)=>({type:ADD_CARD,payload:{did:did,cid:cid,Qword:Qword,Aword:Aword}})

@@ -2,6 +2,7 @@ import { useState } from "react";
 import FlashCard from "../Components/FlashCard";
 import { withRouter } from "react-router";
 
+import { useSelector ,useDispatch} from 'react-redux';
 
 import {
     BrowserRouter as Router,
@@ -9,9 +10,10 @@ import {
     Route,
     Link
 } from "react-router-dom";
+import { add_card } from "../action";
 function CardList(props) {
     const { deck , did } = props.location.state;
-    
+    const dispatch = useDispatch()
     const [deckW,setDeck] = useState(deck)
     const [modalState,setModalState] = useState("none")
     const [questionWord,setQuestionWord] = useState("")
@@ -25,9 +27,11 @@ function CardList(props) {
     function hideModal() {
         setModalState("none")
         if(questionWord.length!=0 && answerWord.length!=0){
-            setDeck([...deckW, { "id":deckW.length,"OriginalWord": questionWord, "AnswerWord": answerWord }])
+            dispatch(add_card(did,deckW.length+1,questionWord,answerWord))
+            setDeck([...deckW, { "id":deckW.length+1,"OriginalWord": questionWord, "AnswerWord": answerWord }])
             // set_card_word_a(did,deckW.length-1,answerWord)
             // set_card_word_q(did,deckW.length-1,questionWord)
+            
             
         }
     }

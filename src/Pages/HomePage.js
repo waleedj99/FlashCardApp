@@ -23,7 +23,15 @@ export default function HomePage(props) {
   //   console.log(deckList)
   // }
 
-  if(props.deckList == null)return(<>loading</>)
+  if(props.deckList.length==0)return(<>
+  <div className="home-page">
+    <div onClick={()=>dispatch(add_deck(deckList.length+1,"New Deck"))} className="button drop-shadow list-item primary-500 outline-dark">
+          <h3 className="center-element" >
+            ADD DECK
+      </h3>
+        </div>
+  </div>
+  </>)
 
   return (
 
