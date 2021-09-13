@@ -41,7 +41,8 @@ else{
         pathname: '/cards',
         state: {
           deck: props.deck.cardlist,
-          deckName:deckName
+          deckName:deckName,
+          did:itemInfo.id
         }
       }}> OPEN</Link>
       </div>

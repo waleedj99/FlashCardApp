@@ -1,4 +1,8 @@
 import { useState } from "react";
+import { set_card_words} from "../action";
+
+import { useSelector ,useDispatch} from 'react-redux';
+
 export default function FlashCard(props) {
   const [displayWord, setDisplayWord] = useState(props.OriginalWord);
   const [isMouseOver, setIsMouseOver] = useState(window.innerWidth>500?false:true)
@@ -6,6 +10,9 @@ export default function FlashCard(props) {
   const [TranslatedWord, setTranslatedWord] = useState(props.TranslatedWord);
   const [cardState,setCardState] = useState(true)
   const [isEdit,setIsEdit]  = useState(false)
+  const dispatch = useDispatch();
+
+
 
   function saveToDB(id,originalWord,translatedWord,deckName=props.deckName){
     let DBTemp = localStorage.getItem("mainDeckList")
@@ -55,6 +62,8 @@ export default function FlashCard(props) {
         {isEdit ? <h5 
         onClick={() => { 
           setIsEdit(false);
+          dispatch(set_card_words(props.did,props.id,OriginalWord,TranslatedWord))
+          
           //saveToDB(props.id,OriginalWord,TranslatedWord)
          }} className="button">SAVE</h5> 
          :

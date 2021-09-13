@@ -1,6 +1,8 @@
 import { useState } from "react";
 import FlashCard from "../Components/FlashCard";
 import { withRouter } from "react-router";
+
+
 import {
     BrowserRouter as Router,
     Switch,
@@ -8,19 +10,26 @@ import {
     Link
 } from "react-router-dom";
 function CardList(props) {
-    const { deck } = props.location.state;
+    const { deck , did } = props.location.state;
+    
     const [deckW,setDeck] = useState(deck)
     const [modalState,setModalState] = useState("none")
     const [questionWord,setQuestionWord] = useState("")
     const [answerWord, setAnswerWord] = useState("")
+
+
     function showModal(){
         setModalState("flex")
     }
     
     function hideModal() {
         setModalState("none")
-        if(questionWord.length!=0 && answerWord.length!=0)
+        if(questionWord.length!=0 && answerWord.length!=0){
             setDeck([...deckW, { "id":deckW.length,"OriginalWord": questionWord, "AnswerWord": answerWord }])
+            // set_card_word_a(did,deckW.length-1,answerWord)
+            // set_card_word_q(did,deckW.length-1,questionWord)
+            
+        }
     }
     function addCard() {
         showModal() 
@@ -51,7 +60,7 @@ function CardList(props) {
         </div>    
         <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center"}}>
         {deckW.map((cardData)=>{
-            return <FlashCard id={cardData.id} OriginalWord={cardData.OriginalWord} TranslatedWord={cardData.AnswerWord} deckName={props.location.state.deckName}  />
+            return <FlashCard deckId={did} id={cardData.id} OriginalWord={cardData.OriginalWord} TranslatedWord={cardData.AnswerWord} deckName={props.location.state.deckName}  />
         })}
                 <div style={{ width: "12em", height: "12em", borderRadius: "0.5em", margin: "1em" }}>
                 <div onClick={addCard} className="button flash-card primary-500 outline-dark center-element"> 

@@ -11,8 +11,5 @@ export const DEL_DECK= "DEL_DECK";
 export const del_deck = (id) => ({type:DEL_DECK , payload:{id:id}})
 
 //CardList
-export const SET_CARD_WORD_Q = "SET_CARD_WORD_Q";
-export const set_card_word_q =(cid,did,updatedWord) =>({type:SET_CARD_WORD_Q , payload:{did:did,cid:cid,updatedWord:updatedWord}}); //id of the card to change
-
-export const SET_CARD_WORD_A = "SET_CARD_WORD_A";
-export const set_card_word_A =(cid,did,updatedWord) =>({type:SET_CARD_WORD_A , payload:{did:did,cid:cid,updatedWord:updatedWord}}); //id of the card to change
+export const SET_CARD_WORDS = "SET_CARD_WORDS";
+export const set_card_words =(cid,did,updatedWord) =>({type:SET_CARD_WORDS , payload:{did:did,cid:cid,updatedWord:updatedWord}}); //id of the card to change
