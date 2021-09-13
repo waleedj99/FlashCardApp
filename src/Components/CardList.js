@@ -17,8 +17,6 @@ function CardList(props) {
         setModalState("flex")
     }
     
-    
-
     function hideModal() {
         setModalState("none")
         if(questionWord.length!=0 && answerWord.length!=0)

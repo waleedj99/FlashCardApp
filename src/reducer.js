@@ -1,4 +1,4 @@
-import {ADD_DECK,SET_DECK_NAME,DEL_DECK} from "./action.js"
+import {ADD_DECK,SET_DECK_NAME,DEL_DECK, SET_CARD_WORD_A, SET_CARD_WORD_Q} from "./action.js"
 
 export const initialState = [
       {
@@ -43,7 +43,6 @@ export const reducer = (state=initialState,action) =>{
         return state.filter(obj=>obj.id!==action.payload.id);
     }
     if(action.type==SET_DECK_NAME){
-        
         state.map((obj) => {
             console.log(obj,obj.id===action.payload.id)
             if(obj.id===action.payload.id){
@@ -51,11 +50,40 @@ export const reducer = (state=initialState,action) =>{
                 obj.deckname = action.payload.deckname;
                 console.log(obj.deckname)
             }
-        });
-
-        
+        });        
         return state 
     }
+
+    if(action.type==SET_CARD_WORD_Q){
+      state.map((obj) => {
+            console.log(obj,obj.id===action.payload.id)
+            if(obj.id===action.payload.did){
+                console.log(obj.deckname)
+                obj.map((card)=>{
+                  if(card.id===action.payload.cid){
+                    card.OriginalWord = action.payload.updatedWord
+                  }
+                })
+            }
+        });        
+        return state
+    }
+
+    if(action.type==SET_CARD_WORD_A){
+      state.map((obj) => {
+            console.log(obj,obj.id===action.payload.id)
+            if(obj.id===action.payload.did){
+                console.log(obj.deckname)
+                obj.map((card)=>{
+                  if(card.id===action.payload.cid){
+                    card.AnswerWord = action.payload.updatedWord
+                  }
+                })
+            }
+        });        
+        return state
+    }
+
     return state;
 }
 
